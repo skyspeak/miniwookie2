@@ -4,9 +4,9 @@
   	
 	<div class="view">
 	<%if params[:action] == 'new' %>
-	  <h2 class="text-left">Create Job</h2>
+	  <h2 class="text-left">Create Member</h2>
 	<%else%>
-	   <h2 class="text-left">Update Job</h2>
+	   <h2 class="text-left">Update Member</h2>
 	<%end%>
   <hr style="border-bottom:1px solid gray;"/>
 <%= form_for(@job , :html => { :class => 'form-horizontal' ,:onsubmit =>"return validateForm();"} ) do |f| %>

@@ -61,7 +61,7 @@ class JobsController < ApplicationController
       if @job.save
         @job_email = JobEmail.new(:job_id => @job.id , :email => params[:job][:email])
         @job_email.save!
-        format.html { redirect_to '/jobs/new', notice: 'Job was successfully created.' }
+        format.html { redirect_to '/', notice: 'Member was successfully created.' }
         format.json { render action: 'show', status: :created, location: @job }
       else
         format.html { render action: 'new' }
@@ -77,7 +77,7 @@ class JobsController < ApplicationController
   def update
     respond_to do |format|
       if @job.update(job_params)
-        format.html { redirect_to @job, notice: 'Job was successfully updated.' }
+        format.html { redirect_to @job, notice: 'Member was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: 'edit' }
