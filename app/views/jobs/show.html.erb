@@ -1,0 +1,42 @@
+<div class="col-md-12 column ui-sortable">
+				
+			<div class="box box-element ui-draggable" style="display: block;">
+  	
+	<div class="view">
+
+ <h2 class="text-left">Job Details</h2>
+  <hr style="border-bottom:1px solid gray;"/>
+ <table contenteditable="true" class="table table-striped" style="text-align:left;">
+ 
+<tr>
+  <td>Name</td>
+  <td><%= @job.name %></td>
+</tr>
+
+<tr>
+  <td>Email</td>
+  <td><%= @job.job_emails.first.email %></td>
+</tr>
+
+<tr>
+  <td>Stage</td>
+  <td><%= @job.stage %></td>
+</tr>
+
+<tr>
+  <td>Date:</td>
+  <td><%= @job.date %></td>
+</tr>
+
+<tr>
+  <td>Comments:</td>
+  <td><%= @job.comments %></td>
+</tr>
+
+</table> 
+<%= link_to 'Edit', edit_job_path(@job) %> |
+<%= link_to 'Back', jobs_path %>
+
+ </div>
+</div>
+</div>

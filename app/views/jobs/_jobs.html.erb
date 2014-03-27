@@ -1,0 +1,129 @@
+<h2 class="text-left">Jobs</h2>
+  <hr style="border-bottom:1px solid gray;"/>
+ <table contenteditable="true" class="table table-striped" style="text-align:left;">
+  <thead>
+     <tr>
+      <th>Name</th>
+      <th>Stage</th>
+      <th>Date</th>
+      <th>Comments</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <% jobs.each do |job| %>
+      <tr>
+        <td><%= job.name %></td>
+        <td><%= job.stage %></td>
+        <td><%= job.date %></td>
+        <td><%= job.comments %></td>
+        <td><%#= link_to 'Show', job %></td>
+        <td><%#= link_to 'Edit', edit_job_path(job) %></td>
+        <td><%#= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+<div>
+<b>Members </b><br/>
+<canvas id="canvas" height="450" width="600"></canvas>
+ <div class="col-md-4 column" style="float:right;width:100px;margin-top: 100px;">
+ <table class="table table-bordered table-striped">
+	  <tr>
+		  <td><span style="background:#F38630;display:block;text-indent: -9999px;width:20px;">tt</span></td>
+		  <td>Stage1</td>
+	  </tr>
+	  <tr>
+		  <td><span style="background:#E0E4CC;display:block;text-indent: -9999px;width:20px;">tt</span></td>
+		  <td>Stage2</td>
+	  </tr>
+	  <tr>
+		  <td><span style="background:#69D2E7;display:block;text-indent: -9999px;width:20px;">tt</span></td>
+		  <td>Stage3</td>
+	  </tr>
+	  <tr>
+		  <td><span style="background:#9D9B7F;display:block;text-indent: -9999px;width:20px;">tt</span></td>
+		  <td>Stage4</td>
+	  </tr>
+	  <tr>
+		  <td><span style="background:#7D4F6D;display:block;text-indent: -9999px;width:20px;">tt</span></td>
+		  <td>Stage5</td>
+	  </tr>
+	  <tr>
+		  <td><span style="background:#584A5E;display:block;text-indent: -9999px;width:20px;">tt</span></td>
+		  <td>Stage6</td>
+	  </tr>
+  </table>
+  </div>
+ </div>
+	<script>
+
+
+	var pieData = [
+				{
+					value: <%=raw members1%>,
+					color:"#F38630"
+				},
+				{
+					value : <%=raw members2%>,
+					color : "#E0E4CC"
+				},
+				{
+					value : <%=raw members3%>,
+					color : "#69D2E7"
+				},
+				{
+					value : <%=raw members4%>,
+					color : "#9D9B7F"
+				},
+				{
+					value : <%=raw members5%>,
+					color : "#7D4F6D"
+				},
+				{
+					value : <%=raw members6%>,
+					color : "#584A5E"
+				}
+			
+			];
+
+	var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pieData);
+	</script>
+	<br/>
+	<b>Wait Times (In Minutes) </b><br/>
+	<canvas id="canvas1" height="450" width="600"></canvas>
+
+     
+	<script>
+
+		var barChartData = {
+			labels : <%=raw members %>,
+			datasets : [
+				{
+					fillColor : "rgba(220,220,220,0.5)",
+					strokeColor : "rgba(220,220,220,1)",
+					data : <%=raw wait_times%>
+				},
+				{
+					fillColor : "rgba(151,187,205,0.5)",
+					strokeColor : "rgba(151,187,205,1)",
+					data : <%=raw wait_times%>
+				}
+			]
+			
+		}
+
+	var myLine = new Chart(document.getElementById("canvas1").getContext("2d")).Bar(barChartData);
+	
+	</script>
+	
+<%#= link_to 'New Job', new_job_path %>
+
+</div>
+</div>
+</div>

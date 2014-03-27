@@ -1,0 +1,68 @@
+<div class="jumbotron col-md-12 column ui-sortable">
+				
+			<div class="box box-element ui-draggable" style="display: block;">
+  	
+	<div class="view">
+	<%if params[:action] == 'new' %>
+	  <h2 class="text-left">Create Job</h2>
+	<%else%>
+	   <h2 class="text-left">Update Job</h2>
+	<%end%>
+  <hr style="border-bottom:1px solid gray;"/>
+<%= form_for(@job , :html => { :class => 'form-horizontal' ,:onsubmit =>"return validateForm();"} ) do |f| %>
+  <% if @job.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@job.errors.count, "error") %> prohibited this job from being saved:</h2>
+
+      <ul>
+      <% @job.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name ,:class => 'col-sm-2 control-label'%>
+    <div class="col-sm-10">
+      <%= f.text_field :name ,:class => "form-control"%>
+    
+    </div>  <span  style="display:none;" class="error">Please provide a name. </span> <br/><br/>
+  </div>
+  <div class="field">
+    <%= f.label :email,:class => 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+     <%if params[:action] =='edit'%>
+        <%= text_field_tag 'job[email]' , @job.job_emails.first.email,:class => "form-control",:readonly => 'true'%>
+     <%else%>
+         <%= text_field_tag 'job[email]' , nil,:class => "form-control"%>
+      <%end%>
+    </div><br/><br/>
+  </div>
+  
+  <div class="field">
+    <%= f.label :stage, :class => 'col-sm-2 control-label'%>
+    <div class="col-sm-10">
+         <%= f.select :stage, options_for_select({ "Stage1" => "Stage1", "Stage2" => "Stage2" , "Stage3" => "Stage3", "Stage4" => "Stage4", "Stage5" => "Stage5","Stage6" => "Stage6"}), {prompt: "Select a Stage"}, {class: "form-control",:style => "width:300px;"} %>
+     </div><span style="display:none;" class="error">Please provide a stage. </span><br/><br/>
+  </div>
+  <div class="field">
+    <%= f.label :date,:class => 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :date , :placeholder => "Date" ,:class => "form-control" %>
+    </div><br/><br/>
+  </div>
+  <div class="field">
+    <%= f.label :comments,:class => 'col-sm-2 control-label' %>
+    <div class="col-sm-10">
+      <%= f.text_field :comments , :placeholder => "Comments" ,:class => "form-control" %>
+    </div><br/><br/>
+  </div>
+  <div class="actions">
+    <%= f.submit "Send", :class => 'btn btn-primary btn-large'%>
+  </div>
+<% end %>
+
+</div>
+</div>
+</div>

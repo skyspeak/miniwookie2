@@ -1,0 +1,37 @@
+<div class="col-md-12 column ui-sortable">
+				
+			<div class="box box-element ui-draggable" style="display: block;">
+  	
+	<div class="view">
+	<%if params[:action] == 'new' %>
+	  <h2 class="text-left">Create Job</h2>
+	<%else%>
+	  <h2 class="text-left">Update Job</h2>
+    <%end%>
+  <hr style="border-bottom:1px solid gray;"/>
+<%= form_for(@category , :html => { :class => 'form-horizontal' } ) do |f| %>
+  <% if @category.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
+
+      <ul>
+      <% @category.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name ,:class => 'col-sm-2 control-label'%>
+     <div class="col-sm-10">
+    <%= f.text_field :name ,:class => "form-control"%>
+   </div><br/><br/>
+  <div class="actions">
+    <%= f.submit "Create Category" , :class => 'btn btn-primary btn-large'%>
+  </div>
+<% end %>
+
+</div>
+</div>
+</div>

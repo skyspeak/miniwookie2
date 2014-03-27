@@ -1,0 +1,22 @@
+<div class="col-md-12 column ui-sortable">
+				
+			<div class="box box-element ui-draggable" style="display: block;">
+  	
+	<div class="view">
+
+ <h2 class="text-left">Category Details</h2>
+  <hr style="border-bottom:1px solid gray;"/>
+ <table contenteditable="true" class="table table-striped" style="text-align:left;">
+
+<tr>
+  <td>Name:</td>
+  <td><%= @category.name %></td>
+</tr>
+</table>
+
+<%= link_to 'Edit', edit_category_path(@category) %> |
+<%= link_to 'Back', categories_path %>
+
+ </div>
+</div>
+</div>

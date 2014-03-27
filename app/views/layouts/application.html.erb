@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= content_for?(:title) ? yield(:title) : "Self Serve" %></title>
+    <meta name="description" content="<%= content_for?(:description) ? yield(:description) : "Self Serve" %>">
+    <%= stylesheet_link_tag "application", media: "all", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+    <%= javascript_include_tag "bootstrap-datepicker" %>
+    <%= csrf_meta_tags %>
+    <script src="/assets/Chart.js"></script>
+		<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
+		<style>
+			canvas{
+			}
+		</style>
+		
+  </head>
+  <body>
+    <header>
+      <%= render 'layouts/navigation' %>
+     </header>
+    
+       
+        <div class="container">
+           <%= render 'layouts/messages' %>
+           <div class="jumbotron">
+			    <div class="row clearfix">
+			       <div class="col-md-12 column ui-sortable">
+			       <%= yield %>
+			       </div>
+                </div>
+            </div>
+        </div>
+
+  </body>
+</html>
+
+<script>
+        
+      $(document).ready(function() {
+          setTimeout(function(){$(".alert-success1").fadeOut( "slow" );},4000);   
+       });
+            
+
+
+function validateForm(){ 
+      var success = true;
+	  if ($('#job_name').val() == '')
+	    {
+	      $('#job_name').parent().next().show();
+	      success = false;
+	    }
+	  else
+		{
+			$('#job_name').parent().next().hide();
+			 
+		}
+	
+	  if ($('#job_stage').val() == '' )
+	    {
+	      $('#job_stage').parent().next().show();
+	      success = false;
+	    }
+	  else
+		 {
+		   $('#job_stage').parent().next().hide();
+		 
+		 }
+	 
+	return success;
+   }
+
+
+       
+    </script>

@@ -1,0 +1,8 @@
+development:
+  adapter: mysql2
+  encoding: utf8
+  database: selfserve_development_new
+  pool: 5
+  username: root
+  password: indian
+  socket: /var/run/mysqld/mysqld.sock
