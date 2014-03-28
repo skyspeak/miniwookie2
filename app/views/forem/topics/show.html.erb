@@ -1,6 +1,3 @@
-  <header>
-      <%= render 'layouts/navigation' %>
-     </header>
 <div id='topic' class='<%= 'un' unless @topic.locked? %>locked'>
   <%= render :partial => 'forem/topics/head', :locals => { :topic => @topic } %>
 
