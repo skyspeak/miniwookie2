@@ -30,6 +30,8 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'forem', :github => "radar/forem", :branch => "rails4"
 gem 'kaminari', '0.15.1'
+gem 'forem-theme-orange', :git => "git://github.com/radar/forem-theme-orange.git"
+gem 'forem-theme-twist', :git => "git://github.com/radar/forem-theme-twist.git"
 gem 'forem-bootstrap', :github => "radar/forem-bootstrap"
 
 
