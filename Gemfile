@@ -28,8 +28,10 @@ gem 'turbolinks'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 1.2'
 
-
+gem 'forem', :github => "radar/forem", :branch => "rails4"
 gem 'kaminari', '0.15.1'
+gem 'forem-bootstrap', :github => "radar/forem-bootstrap"
+
 
 gem 'cancan'
 gem 'devise', "3.0.0rc"

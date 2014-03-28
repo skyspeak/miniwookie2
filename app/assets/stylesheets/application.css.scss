@@ -10,7 +10,6 @@
  *
  *= require_self
  *= require framework_and_overrides
- *= require datepicker
- *= require datepicker3
-
+ *= require 'forem/base'
+ *= require 'forem-bootstrap'
  */

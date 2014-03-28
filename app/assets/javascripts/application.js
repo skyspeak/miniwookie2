@@ -14,7 +14,7 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require bootstrap
-
+//= require forem
    
     $(document).ready(function() {
         $("#job_date").datepicker({ autoclose: true,  format: 'yyyy-mm-dd'});
