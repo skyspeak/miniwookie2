@@ -1,8 +1,8 @@
 <nav id="nav">
 					<ul>
-						<li <%if params[:controller] == 'jobs' %>class="current_page_item" <%end%>><a href="/">Home</a></li>
-						<li>
-							<a href="/">About</a>
+						<li <%if params[:controller] == 'jobs' && params[:action] != 'aboutus' %>class="current_page_item" <%end%>><a href="/">Home</a></li>
+						<li <%if params[:action] == 'aboutus' %>class="current_page_item" <%end%>>
+							<a href="/aboutus">About</a>
 						</li>
 						<li <%if params[:controller] == 'forem/forums' %>class="current_page_item" <%end%>>
 							<a href="/forums">Forum</a>

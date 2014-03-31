@@ -9,8 +9,17 @@
     <%= javascript_include_tag "bootstrap-datepicker" %>
     <%= csrf_meta_tags %>
     <%= stylesheet_link_tag "framework_and_overrides" %>
-    <%= stylesheet_link_tag "forem/twist/style" %>
-    <script src="/assets/Chart.js"></script>
+   	<link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,700,900,300italic" rel="stylesheet" />
+		<script src="/assets/jquery.min.js"></script>
+		<script src="/assets/jquery.dropotron.min.js"></script>
+		<script src="/assets/config.js"></script>
+		<script src="/assets/skel.min.js"></script>
+		<script src="/assets/skel-panels.min.js"></script>
+		
+			<%= stylesheet_link_tag "skel-noscript" %>
+			<%= stylesheet_link_tag "style" %>
+			<%= stylesheet_link_tag "style-desktop" %>
+            <script src="/assets/Chart.js"></script>
 		<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
 		<style>
 			canvas{
@@ -18,23 +27,49 @@
 		</style>
 		
   </head>
-  <body>
-    <header>
-      <%= render 'layouts/navigation' %>
-     </header><br/>
-    
-       
-        <div class="container">
-           <%= render 'layouts/messages' %>
-           <div class="jumbotron">
-			    <div class="row clearfix">
-			       <div class="col-md-12 column ui-sortable">
-			       <%= yield %>
-			       </div>
-                </div>
-            </div>
-        </div>
+   <body class="homepage">
+  <!-- Header Wrapper -->
+			<div id="header-wrapper">
+				<div class="container">
+				 <%= render 'layouts/messages' %>
+					<div class="row">
+						<div class="12u">
+						
+							<!-- Header -->
+								<section id="header">
+									
+									<!-- Logo -->
+										<h1><a href="javascript:void(0);">Forums</a></h1>
+									
+									<!-- Nav -->
+										<%= render 'layouts/navigation' %>
+								</section>
 
+						</div>
+					</div>
+					<div class="row">
+						<div class="12u">
+							    <%= yield %>
+						</div>
+					</div>
+				</div>
+			</div>
+		
+					</div>
+					
+		<!-- Footer Wrapper -->
+			<div id="footer-wrapper">
+				
+				<!-- Footer -->
+					<section id="footer" class="container">
+						<div class="row">
+							<div class="8u">
+
+								
+					</section>
+				
+			</div>
+   
   </body>
 </html>
 

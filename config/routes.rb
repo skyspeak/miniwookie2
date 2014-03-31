@@ -11,7 +11,7 @@ Selfserve::Application.routes.draw do
   end
   
   resources :jobs
-
+  get 'aboutus' => 'jobs#aboutus', as: :aboutus
   mount Forem::Engine, :at => "/forums"
 
   root 'jobs#new'
