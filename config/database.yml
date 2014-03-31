@@ -1,7 +1,7 @@
 development:
   adapter: mysql2
   encoding: utf8
-  database: selfserve_development_new
+  database: selfserve_dev_new
   pool: 5
   username: root
   password: indian

@@ -1,23 +1,22 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
-
+  layout "homelayout"
   # GET /jobs
   # GET /jobs.json
   def index
     @jobs = Job.all
     @stages = []
-    
+    @members_count=Job.all.count
    @members1 =  Job.find_all_by_stage('Stage1').count
    @members2 =  Job.find_all_by_stage('Stage2').count
    @members3 =  Job.find_all_by_stage('Stage3').count
    @members4 =  Job.find_all_by_stage('Stage4').count
-   @members5=  Job.find_all_by_stage('Stage5').count
-   @members6 =  Job.find_all_by_stage('Stage6').count
+
    @members = []
    @wait_times=[]
 	   @jobs.each do |m|
 	     @members << m.name
-		  @wait_times << ((DateTime.now.to_date - m.date)* 24 * 60 ).to_i
+		  @wait_times << ((DateTime.now.to_date - m.start_date)* 24 * 60 ).to_i
 	      @stages << m.stage
 	    end
   end
@@ -32,19 +31,19 @@ class JobsController < ApplicationController
     @job = Job.new
     @jobs = Job.all
     @stages = []
+    @members_count= Job.all.count
    @members1 =  Job.find_all_by_stage('Stage1').count
    @members2 =  Job.find_all_by_stage('Stage2').count
    @members3 =  Job.find_all_by_stage('Stage3').count
    @members4 =  Job.find_all_by_stage('Stage4').count
-   @members5=  Job.find_all_by_stage('Stage5').count
-   @members6 =  Job.find_all_by_stage('Stage6').count
+
    @members = []
    @wait_times=[]
   
     @jobs.each do |m|
       @members << m.name
 	  @stages << m.stage
-	  @wait_times << ((DateTime.now.to_date - m.date)* 24 * 60 ).to_i
+	  @wait_times << ((DateTime.now.to_date - m.start_date)* 24 * 60 ).to_i
   end
   end
 
@@ -104,6 +103,6 @@ class JobsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def job_params
-      params.require(:job).permit(:name, :category, :stage, :date,:comments)
+      params.require(:job).permit(:name, :category,:country, :stage, :start_date,:end_date)
     end
 end

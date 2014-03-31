@@ -8,8 +8,8 @@
     <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
     <%= javascript_include_tag "bootstrap-datepicker" %>
     <%= csrf_meta_tags %>
+    <%= stylesheet_link_tag "framework_and_overrides" %>
     <%= stylesheet_link_tag "forem/twist/style" %>
-
     <script src="/assets/Chart.js"></script>
 		<meta name = "viewport" content = "initial-scale = 1, user-scalable = no">
 		<style>
@@ -21,7 +21,7 @@
   <body>
     <header>
       <%= render 'layouts/navigation' %>
-     </header>
+     </header><br/>
     
        
         <div class="container">

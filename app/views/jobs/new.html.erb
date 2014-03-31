@@ -1,4 +1,84 @@
 
-<%= render :partial => 'jobs', :locals => { :jobs => @jobs , :stages => @stages ,:members => @members , :members1 => @members1 ,:members2 => @members2,:members3 => @members3,:members4 => @members4,:members5 => @members5,:members6 => @members6, :wait_times => @wait_times}%>
-<%= render 'form' %>
+	<!-- Intro -->
+								<section id="intro">
+								
+									<div>
+										<div class="row">
+											<div class="4u">
+												<section class="first">
+													<span class="pennant"><span class="fa fa-cog"></span></span>
+													<header>
+														<h2><%=@members_count%> Members</h2>
+													</header>
+												</section>
+											</div>
+											<div class="4u">
+												<section class="middle">
+													<span class="pennant pennant-alt"><span class="fa fa-flash"></span></span>
+													<header>
+														<h2>Stages</h2>
+														<canvas id="canvas"  height="450" width="480" style="margin-left: -60px;" ></canvas>
+														
+												</section>
+											</div>
+											<div class="4u">
+												<section class="last">
+													<span class="pennant pennant-alt2"><span class="fa fa-star"></span></span>
+													<header>
+														<h2>Wait times</h2>
+														<canvas id="canvas1" height="450" width="450"></canvas>
+													</header>
+												</section>
+											</div>
+										</div>
+									</div>
 
+								  <%= render 'form' %>
+									</div>
+								
+								</section>
+
+	<script>
+
+		var barChartData = {
+			labels : <%=raw @members %>,
+			datasets : [
+				{
+					fillColor : "rgba(220,220,220,0.5)",
+					strokeColor : "rgba(220,220,220,1)",
+					data : <%=raw @wait_times%>
+				},
+				{
+					fillColor : "rgba(151,187,205,0.5)",
+					strokeColor : "rgba(151,187,205,1)",
+					data : <%=raw @wait_times%>
+				}
+			]
+			
+		}
+
+	var myLine = new Chart(document.getElementById("canvas1").getContext("2d")).Bar(barChartData);
+	
+	
+	var pieData = [
+				{
+					value: <%=raw @members1%>,
+					color:"#F38630"
+				},
+				{
+					value : <%=raw @members2%>,
+					color : "#E0E4CC"
+				},
+				{
+					value : <%=raw @members3%>,
+					color : "#69D2E7"
+				},
+				{
+					value : <%=raw @members4%>,
+					color : "#9D9B7F"
+				}
+			
+			];
+  
+	var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(pieData);
+	</script><br/>

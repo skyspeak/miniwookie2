@@ -118,8 +118,10 @@ ActiveRecord::Schema.define(version: 20140317092902) do
   create_table "jobs", force: true do |t|
     t.string   "name"
     t.string   "stage"
-    t.date     "date"
-    t.text     "comments"
+    t.string   "category"
+    t.string   "country"
+    t.date     "start_date"
+    t.date     "end_date"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -137,10 +139,10 @@ ActiveRecord::Schema.define(version: 20140317092902) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.string   "role"
     t.boolean  "forem_admin",            default: false
     t.string   "forem_state",            default: "pending_review"
     t.boolean  "forem_auto_subscribe",   default: false
+    t.string   "role"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree

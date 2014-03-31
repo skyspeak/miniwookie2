@@ -37,7 +37,8 @@
 <br>
 <div>
 <b>Members </b><br/>
-<canvas id="canvas" height="450" width="600"></canvas>
+<canvas id="doughnut" height="450" width="600"></canvas>
+
  <div class="col-md-4 column" style="float:right;width:100px;margin-top: 100px;">
  <table class="table table-bordered table-striped">
 	  <tr>
@@ -86,19 +87,11 @@
 				{
 					value : <%=raw @members4%>,
 					color : "#9D9B7F"
-				},
-				{
-					value : <%=raw @members5%>,
-					color : "#7D4F6D"
-				},
-				{
-					value : <%=raw @members6%>,
-					color : "#584A5E"
 				}
-			
+					
 			];
-
-	var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Pie(pieData);
+  
+	var myPie = new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(pieData);
 	</script><br/>
 	
 	<b>Wait Times (In Minutes)</b><br/>
