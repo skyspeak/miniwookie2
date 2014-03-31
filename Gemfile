@@ -42,6 +42,7 @@ group :doc do
   gem 'sdoc', require: false
 end
 
+gem 'country_select'
 gem 'bootstrap-sass'
 gem 'rails_layout'
 
