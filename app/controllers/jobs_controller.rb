@@ -85,7 +85,7 @@ class JobsController < ApplicationController
 	  @stages << m.stage
 	end
 	
-	  @wait_times = [(@average1 / 7).round , (@average2 / 7).round , (@average3 / 7).round ,  (@average4 / 7).round]
+	  @wait_times = [(@average1 / 7).round , (@average2 / 7).round , (@average3 / 7).round , 0]
 	  
   end
 
