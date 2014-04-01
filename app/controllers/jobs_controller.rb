@@ -71,14 +71,21 @@ class JobsController < ApplicationController
        @average_sec3 += @wait_times3
     end
     @average3 = @average_sec3 / @members3
-         
-	 
+    
+  if   !@jobs4.nil?
+    @jobs4.each do |m|
+       @wait_times4 = (m.end_date - m.start_date).to_i
+       @average_sec4 += @wait_times4
+    end
+    @average4 = @average_sec4 / @members4
+  end
+  
     @jobs.each do |m|
       @members << m.name
 	  @stages << m.stage
 	end
 	
-	  @wait_times = [(@average1 / 7).round , (@average2 / 7).round , (@average3 / 7).round , 0]
+	  @wait_times = [(@average1 / 7).round , (@average2 / 7).round , (@average3 / 7).round ,  (@average4 / 7).round]
 	  
   end
 
