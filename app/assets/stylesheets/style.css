@@ -95,12 +95,12 @@
 		}
     form select
     {
-	   padding: 5px;
-	   font-size: 16px;
-	   line-height: 1;
+	  // padding: 5px;
+	   //font-size: 16px;
+	 //  line-height: 1;
 	   border: 0;
 	   border-radius: 0;
-	   height: 34px;
+	  // height: 34px;
 	   -webkit-appearance: none;
    }
 	br.clear
@@ -1164,10 +1164,8 @@
     text-align: center;
     }
     
-   .control-label{
-         margin-right: 130px;
-    }
-    .alert {
+
+.alert {
   padding: 15px;
   margin-bottom: 20px;
   border: 1px solid transparent;
@@ -1232,3 +1230,4 @@ button.close {
   background: transparent;
   border: 0;
 }
+.form-horizontal label input { display: inline; }

@@ -1,53 +1,50 @@
 <br/><br/>
 <div class="header">
 <%= form_for(@job , :html => { :class => 'form-horizontal' ,:onsubmit => "return validateForm();"} ) do |f| %>
-<div class="control-group">
+
     <%= f.label :name ,:class => 'control-label'%>
-    <div class="controls">
+    
       <%= f.text_field :name ,:class => "form-control" , :style => "width:200px;"%>
-    </div> <span  style="display:none;" class="error">Please provide a name. </span><br/>
-  </div>
-  <div class="control-group">
+    <span  style="display:none;" class="error">Please provide a name. </span>
+  
+ 
     <%= f.label :email,:class => 'control-label' %>
-    <div class="controls">
+   
      <%if params[:action] =='edit'%>
         <%= text_field_tag 'job[email]' , @job.job_emails.first.email,:class => "form-control",:readonly => 'true' %>
      <%else%>
          <%= text_field_tag 'job[email]' , nil,:class => "form-control" , :style => "width:200px;"%>
       <%end%>
-    </div>
-  </div>
-  <div class="control-group">
+   
+  
     <%= f.label :category,:class => 'control-label' %>
-    <div class="controls">
+   
       <%= f.select :category, options_for_select({ "Category1" => "Category1", "Category2" => "Category2" , "Category3" => "Category3"}), {prompt: "Select a Category"},{class: "form-control",:style => "width:200px;"} %>
-    </div>
-  </div>
-  <div class="control-group">
+    
+  
     <%= f.label :stage, :class => 'control-label'%>
-    <div class="controls">
-         <%= f.select :stage, options_for_select({ "Stage1" => "Stage1", "Stage2" => "Stage2" , "Stage3" => "Stage3",  "Stage4" => "Stage4"}), {prompt: "Select a State"}, {class: "form-control",:style => "width:200px;"} %>
-    </div><span style="display:none;" class="error">Please provide a stage. </span><br/>
-  </div>
-  <div class="control-group">
+   
+         <%= f.select :stage, options_for_select({ "Stage1" => "Stage1", "Stage2" => "Stage2" , "Stage3" => "Stage3",  "Stage4" => "Stage4"}), {prompt: "Select a State"}, {class: "form-control",:style => "width:170px;"} %>
+    <span style="display:none;" class="error">Please provide a stage. </span><br/>
+  
+  
     <%= f.label :start_date,:class => 'control-label' %>
-    <div class="controls">
+   
       <%= f.text_field :start_date , :placeholder => "yyyy-mm-dd" ,:class => "form-control",:style => "width:200px;" %>
-    </div><span style="display:none;" class="error">Please provide a start date. </span><br/>
-  </div>
-    <div class="control-group">
+    <span style="display:none;" class="error">Please provide a start date. </span>
+ 
+   
     <%= f.label :end_date,:class => 'control-label' %>
-    <div class="controls">
+   
       <%= f.text_field :end_date , :placeholder => "yyyy-mm-dd" ,:class => "form-control",:style => "width:200px;" %>
-    </div>
-  </div>
-  <div class="control-group">
+    <span style="display:none;" class="error">Please provide a end date. </span>
+    <span style="display:none;" class="error">End date should be greater than start date. </span>
+   
   <%= f.label :country,:class => 'control-label' %>
-  <div class="controls">
+  
   <%= f.country_select :country, ["United States"] ,:class => "form-control" ,:style => "width:200px;"%></div>
-  </div>
-  <div><br/>
+ 
     <%= f.submit "Send", :class => 'button'%>
-  </div>
+ 
 <% end %>
 </div>

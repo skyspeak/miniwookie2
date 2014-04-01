@@ -17,24 +17,24 @@
 													<span class="pennant pennant-alt"><span class="fa fa-flash"></span></span>
 													<header>
 														<h2>Stages</h2>
-														<canvas id="canvas"  height="450" width="480" style="margin-left: -60px;" ></canvas>
+														<canvas id="canvas"  height="450" width="400" style="margin-left: -15px;" ></canvas>
 														<div class="col-md-4 column" style="width:300px;">
 															 <table class="table table-bordered table-striped"  cellspacing="15">
 																  <tr>
 																	  <td><span style="background:#F38630;display:block;text-indent: -9999px;width:20px;">tt</span></td>
-																	  <td>Stage1</td>
+																	  <td>Stage1 - <%=raw @members1%> Members</td>
 																  </tr>
 																  <tr>
 																	  <td><span style="background:#E0E4CC;display:block;text-indent: -9999px;width:20px;">tt</span></td>
-																	  <td>Stage2</td>
+																	  <td>Stage2 - <%=raw @members2%> Members</td>
 																  </tr>
 																  <tr>
 																	  <td><span style="background:#69D2E7;display:block;text-indent: -9999px;width:20px;">tt</span></td>
-																	  <td>Stage3</td>
+																	  <td>Stage3 - <%=raw @members3%> Members</td>
 																  </tr>
 																  <tr>
 																	  <td><span style="background:#9D9B7F;display:block;text-indent: -9999px;width:20px;">tt</span></td>
-																	  <td>Stage4</td>
+																	  <td>Stage4 - <%=raw @members4%> Members</td>
 																  </tr>
 																 
 															  </table>
@@ -45,8 +45,8 @@
 												<section class="last">
 													<span class="pennant pennant-alt2"><span class="fa fa-star"></span></span>
 													<header>
-														<h2>Wait times</h2>
-														<canvas id="canvas1" height="450" width="450"></canvas>
+														<h2>Wait times (In Weeks)</h2>
+														<canvas id="canvas1" height="450" width="500"></canvas>
 													</header>
 												</section>
 											</div>
@@ -61,7 +61,7 @@
 	<script>
 
 		var barChartData = {
-			labels : <%=raw @members %>,
+			labels : ['Stage1 - <%=(@average1 / 7).round%>W','Stage2 - <%=(@average2 / 7).round%>W','Stage3 - <%=(@average3 / 7).round%>W','Stage4 - <%=(@average4 / 7).round%>W'],
 			datasets : [
 				{
 					fillColor : "rgba(220,220,220,0.5)",

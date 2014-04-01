@@ -79,38 +79,61 @@
 </html>
 
 <script>
-     
+$(document).ready(function() {
+          setTimeout(function(){$(".alert-success").fadeOut( "slow" );},4000);   
+   });
+   
 function validateForm(){ 
       var success = true;
 	  if ($('#job_name').val() == '')
 	    {
-	      $('#job_name').parent().next().show();
+	      $('#job_name').next().show();
 	      success = false;
 	    }
 	  else
 		{
-			$('#job_name').parent().next().hide();
+			$('#job_name').next().hide();
 			 
 		}
 	
 	  if ($('#job_stage').val() == '' )
 	    {
-	      $('#job_stage').parent().next().show();
+	      $('#job_stage').next().show();
 	      success = false;
 	    }
 	  else
 		 {
-		   $('#job_stage').parent().next().hide();
+		   $('#job_stage').next().hide();
 		 
 		 }
 	  if ($('#job_start_date').val() == '' )
 	    {
-	      $('#job_start_date').parent().next().show();
+	      $('#job_start_date').next().show();
 	      success = false;
 	    }
 	  else
 		 {
-		   $('#job_start_date').parent().next().hide();
+		   $('#job_start_date').next().hide();
+		 
+		 }
+	if ($('#job_end_date').val() == '' )
+	    {
+	      $('#job_end_date').next().show();
+	      success = false;
+	    }
+	  else
+		 {
+		   $('#job_end_date').next().hide();
+		 
+		 }
+	if ($('#job_end_date').val() != '' && ($('#job_end_date').val() < $('#job_start_date').val()) )
+	    {
+	      $('#job_end_date').next().next().show();
+	      success = false;
+	    }
+	  else
+		 {
+		   $('#job_end_date').next().next().hide();
 		 
 		 }
 	 

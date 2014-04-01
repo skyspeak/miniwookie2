@@ -16,7 +16,7 @@ class JobsController < ApplicationController
    @wait_times=[]
 	   @jobs.each do |m|
 	     @members << m.name
-		  @wait_times << ((DateTime.now.to_date - m.start_date)* 24 * 60 ).to_i
+		  @wait_times << (m.end_date - m.start_date).to_i
 	      @stages << m.stage
 	    end
   end
@@ -30,8 +30,13 @@ class JobsController < ApplicationController
   def new
     @job = Job.new
     @jobs = Job.all
+    @jobs1 = Job.find_all_by_stage('Stage1')
+    @jobs2 = Job.find_all_by_stage('Stage2')
+    @jobs3 = Job.find_all_by_stage('Stage3')
+    @jobs4 = Job.find_all_by_stage('Stage4')
+    
     @stages = []
-    @members_count= Job.all.count
+   @members_count= Job.all.count
    @members1 =  Job.find_all_by_stage('Stage1').count
    @members2 =  Job.find_all_by_stage('Stage2').count
    @members3 =  Job.find_all_by_stage('Stage3').count
@@ -39,13 +44,49 @@ class JobsController < ApplicationController
 
    @members = []
    @wait_times=[]
-  
+   @wait_times1=0
+   @wait_times2=0
+   @wait_times3=0
+   @wait_times4=0
+    @average_sec1 = 0
+    @average_sec2 = 0
+    @average_sec3 = 0
+    @average_sec4 = 0
+    
+    @jobs1.each do |m|
+       @wait_times1 = (m.end_date - m.start_date).to_i
+       @average_sec1 = @average_sec1 + @wait_times1
+    end
+    
+    @average1 = @average_sec1 / @members1
+    
+    @jobs2.each do |m|
+        @wait_times2 = (m.end_date - m.start_date).to_i
+       @average_sec2 += @wait_times2
+    end
+    @average2 = @average_sec2 / @members2
+    
+    @jobs3.each do |m|
+       @wait_times3 = (m.end_date - m.start_date).to_i
+       @average_sec3 += @wait_times3
+    end
+    @average3 = @average_sec3 / @members3
+    
+    @jobs4.each do |m|
+       @wait_times4 = (m.end_date - m.start_date).to_i
+       @average_sec4 += @wait_times4
+    end
+    @average4 = @average_sec4 / @members4
+    
     @jobs.each do |m|
       @members << m.name
 	  @stages << m.stage
-	  @wait_times << ((DateTime.now.to_date - m.start_date)* 24 * 60 ).to_i
+	end
+	
+	  @wait_times = [(@average1 / 7).round , (@average2 / 7).round , (@average3 / 7).round ,  (@average4 / 7).round]
+	  
   end
-  end
+
 
   # GET /jobs/1/edit
   def edit

@@ -79,35 +79,4 @@
           setTimeout(function(){$(".alert-success1").fadeOut( "slow" );},4000);   
        });
             
-
-
-function validateForm(){ 
-      var success = true;
-	  if ($('#job_name').val() == '')
-	    {
-	      $('#job_name').parent().next().show();
-	      success = false;
-	    }
-	  else
-		{
-			$('#job_name').parent().next().hide();
-			 
-		}
-	
-	  if ($('#job_stage').val() == '' )
-	    {
-	      $('#job_stage').parent().next().show();
-	      success = false;
-	    }
-	  else
-		 {
-		   $('#job_stage').parent().next().hide();
-		 
-		 }
-	 
-	return success;
-   }
-
-
-       
-    </script>
+</script>
