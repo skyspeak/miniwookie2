@@ -5,12 +5,12 @@ class JobsController < ApplicationController
   # GET /jobs.json
   def index
     @jobs = Job.all
-    @stages = []
     @jobs1 = Job.find_all_by_stage('Stage1')
     @jobs2 = Job.find_all_by_stage('Stage2')
     @jobs3 = Job.find_all_by_stage('Stage3')
     @jobs4 = Job.find_all_by_stage('Stage4')
-
+    
+    @stages = []
    @members_count= Job.all.count
    @members1 =  Job.find_all_by_stage('Stage1').count
    @members2 =  Job.find_all_by_stage('Stage2').count
@@ -97,29 +97,42 @@ class JobsController < ApplicationController
        @wait_times1 = (m.end_date - m.start_date).to_i
        @average_sec1 = @average_sec1 + @wait_times1
     end
-    
-    @average1 = @average_sec1 / @members1
+    if @members1 > 0
+      @average1 = @average_sec1 / @members1
+    else
+      @average1 = 0
+    end
     
     @jobs2.each do |m|
         @wait_times2 = (m.end_date - m.start_date).to_i
-       @average_sec2 += @wait_times2
+        @average_sec2 += @wait_times2
     end
-    @average2 = @average_sec2 / @members2
+    if @members2 > 0
+      @average2 = @average_sec2 / @members2
+    else
+      @average2 = 0
+    end
     
     @jobs3.each do |m|
        @wait_times3 = (m.end_date - m.start_date).to_i
        @average_sec3 += @wait_times3
     end
-    @average3 = @average_sec3 / @members3
+    if @members3 > 0
+      @average3 = @average_sec3 / @members3
+    else
+      @average3 = 0
+    end
     
-  if   !@jobs4.nil?
     @jobs4.each do |m|
        @wait_times4 = (m.end_date - m.start_date).to_i
        @average_sec4 += @wait_times4
     end
-    @average4 = @average_sec4 / @members4
-  end
-  
+    if @members4 > 0
+      @average4 = @average_sec4 / @members4
+    else
+      @average4 = 0
+    end
+    
     @jobs.each do |m|
       @members << m.name
 	  @stages << m.stage

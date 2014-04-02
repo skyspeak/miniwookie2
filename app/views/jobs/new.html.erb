@@ -3,18 +3,22 @@
 								<section id="intro">
 								
 									<div>
+									
+										  <%= render 'form' %>
+									
 										<div class="row">
 											<div class="4u">
 												<section class="first">
-													<span class="pennant"><span class="fa fa-cog"></span></span>
+													<!-- <span class="pennant"><span class="fa fa-cog"></span></span> -->
 													<header>
-														<h2><%=@members_count%> Members</h2>
+														<h2>Members</h2>
+														<div style="font-weight: bold; font-size: 60px; padding-top: 50px;"><%=@members_count%></div>
 													</header>
 												</section>
 											</div>
 											<div class="4u">
 												<section class="middle">
-													<span class="pennant pennant-alt"><span class="fa fa-flash"></span></span>
+												 <!-- 	<span class="pennant pennant-alt"><span class="fa fa-flash"></span></span> -->
 													<header>
 														<h2>Stages</h2>
 														<canvas id="canvas"  height="450" width="400" style="margin-left: -15px;" ></canvas>
@@ -43,7 +47,7 @@
 											</div>
 											<div class="4u">
 												<section class="last">
-													<span class="pennant pennant-alt2"><span class="fa fa-star"></span></span>
+													<!--  <span class="pennant pennant-alt2"><span class="fa fa-star"></span></span> -->
 													<header>
 														<h2>Wait times (In Weeks)</h2>
 														<canvas id="canvas1" height="450" width="500"></canvas>
@@ -53,7 +57,7 @@
 										</div>
 									</div>
 
-								  <%= render 'form' %>
+								
 									</div>
 								
 								</section>
@@ -63,12 +67,7 @@
 		var barChartData = {
 			labels : ['Stage1 - <%=(@average1 / 7).round%>W','Stage2 - <%=(@average2 / 7).round%>W','Stage3 - <%=(@average3 / 7).round%>W','Stage4 - <%=(@average4 / 7).round%>W'],
 			datasets : [
-				{
-					fillColor : "rgba(220,220,220,0.5)",
-					strokeColor : "rgba(220,220,220,1)",
-					data : <%=raw @wait_times%>
-				},
-				{
+			   {
 					fillColor : "rgba(151,187,205,0.5)",
 					strokeColor : "rgba(151,187,205,1)",
 					data : <%=raw @wait_times%>

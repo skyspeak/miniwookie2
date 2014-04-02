@@ -1,76 +1,84 @@
-<div class="col-md-12 column ui-sortable">
-				
- <div class="box box-element ui-draggable" style="display: block;">
-  	
-	<div class="view">
 
- <h2 class="text-left">Members</h2>
-  <hr style="border-bottom:1px solid gray;"/>
- <table contenteditable="true" class="table table-striped" style="text-align:left;">
-  <thead>
-     <tr>
-      <th>Name</th>
-      <th>Stage</th>
-      <th>Date</th>
-      <th>Comments</th>
-      <th></th>
-      <th></th>
-      <th></th>
-    </tr>
-  </thead>
-  <tbody>
+	<!-- Intro -->
+								<section id="intro">
+								
+									<div>
+									
+			
+									
+										<div class="row">
+											<div class="4u">
+												<section class="first">
+													<!-- <span class="pennant"><span class="fa fa-cog"></span></span> -->
+													<header>
+														<h2>Members</h2>
+														<div style="font-weight: bold; font-size: 60px; padding-top: 50px;"><%=@members_count%></div>
+													</header>
+												</section>
+											</div>
+											<div class="4u">
+												<section class="middle">
+												 <!-- 	<span class="pennant pennant-alt"><span class="fa fa-flash"></span></span> -->
+													<header>
+														<h2>Stages</h2>
+														<canvas id="canvas"  height="450" width="400" style="margin-left: -15px;" ></canvas>
+														<div class="col-md-4 column" style="width:300px;">
+															 <table class="table table-bordered table-striped"  cellspacing="15">
+																  <tr>
+																	  <td><span style="background:#F38630;display:block;text-indent: -9999px;width:20px;">tt</span></td>
+																	  <td>Stage1 - <%=raw @members1%> Members</td>
+																  </tr>
+																  <tr>
+																	  <td><span style="background:#E0E4CC;display:block;text-indent: -9999px;width:20px;">tt</span></td>
+																	  <td>Stage2 - <%=raw @members2%> Members</td>
+																  </tr>
+																  <tr>
+																	  <td><span style="background:#69D2E7;display:block;text-indent: -9999px;width:20px;">tt</span></td>
+																	  <td>Stage3 - <%=raw @members3%> Members</td>
+																  </tr>
+																  <tr>
+																	  <td><span style="background:#9D9B7F;display:block;text-indent: -9999px;width:20px;">tt</span></td>
+																	  <td>Stage4 - <%=raw @members4%> Members</td>
+																  </tr>
+																 
+															  </table>
+														</div>
+												</section>
+											</div>
+											<div class="4u">
+												<section class="last">
+													<!--  <span class="pennant pennant-alt2"><span class="fa fa-star"></span></span> -->
+													<header>
+														<h2>Wait times (In Weeks)</h2>
+														<canvas id="canvas1" height="450" width="500"></canvas>
+													</header>
+												</section>
+											</div>
+										</div>
+									</div>
 
-    <% @jobs.each do |job| %>
-      <tr>
-        <td><%= job.name %></td>
-        <td><%= job.stage %></td>
-        <td><%= job.date %></td>
-        <td><%= job.comments %></td>
-        <td><%#= link_to 'Show', job %></td>
-        <td><%#= link_to 'Edit', edit_job_path(job) %></td>
-        <td><%#= link_to 'Destroy', job, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+								
+									</div>
+								
+								</section>
 
-<br>
-<div>
-<b>Members </b><br/>
-<canvas id="doughnut" height="450" width="600"></canvas>
-
- <div class="col-md-4 column" style="float:right;width:100px;margin-top: 100px;">
- <table class="table table-bordered table-striped">
-	  <tr>
-		  <td><span style="background:#F38630;display:block;text-indent: -9999px;width:20px;">tt</span></td>
-		  <td>Stage1</td>
-	  </tr>
-	  <tr>
-		  <td><span style="background:#E0E4CC;display:block;text-indent: -9999px;width:20px;">tt</span></td>
-		  <td>Stage2</td>
-	  </tr>
-	  <tr>
-		  <td><span style="background:#69D2E7;display:block;text-indent: -9999px;width:20px;">tt</span></td>
-		  <td>Stage3</td>
-	  </tr>
-	  <tr>
-		  <td><span style="background:#9D9B7F;display:block;text-indent: -9999px;width:20px;">tt</span></td>
-		  <td>Stage4</td>
-	  </tr>
-	  <tr>
-		  <td><span style="background:#7D4F6D;display:block;text-indent: -9999px;width:20px;">tt</span></td>
-		  <td>Stage5</td>
-	  </tr>
-	  <tr>
-		  <td><span style="background:#584A5E;display:block;text-indent: -9999px;width:20px;">tt</span></td>
-		  <td>Stage6</td>
-	  </tr>
-  </table>
-  </div>
- </div>
 	<script>
 
+		var barChartData = {
+			labels : ['Stage1 - <%=(@average1 / 7).round%>W','Stage2 - <%=(@average2 / 7).round%>W','Stage3 - <%=(@average3 / 7).round%>W','Stage4 - <%=(@average4 / 7).round%>W'],
+			datasets : [
+			   {
+					fillColor : "rgba(151,187,205,0.5)",
+					strokeColor : "rgba(151,187,205,1)",
+					data : <%=raw @wait_times%>
+				}
+			]
+			
+		}
 
+	var myLine = new Chart(document.getElementById("canvas1").getContext("2d")).Bar(barChartData);
+	
+	
 	var pieData = [
 				{
 					value: <%=raw @members1%>,
@@ -88,41 +96,8 @@
 					value : <%=raw @members4%>,
 					color : "#9D9B7F"
 				}
-					
+			
 			];
   
-	var myPie = new Chart(document.getElementById("doughnut").getContext("2d")).Doughnut(pieData);
+	var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(pieData);
 	</script><br/>
-	
-	<b>Wait Times (In Minutes)</b><br/>
-	<canvas id="canvas1" height="450" width="600"></canvas>
-
-
-	<script>
-
-		var barChartData = {
-			labels : <%=raw @members %>,
-			datasets : [
-				{
-					fillColor : "rgba(220,220,220,0.5)",
-					strokeColor : "rgba(220,220,220,1)",
-					data : <%=raw @wait_times%>
-				},
-				{
-					fillColor : "rgba(151,187,205,0.5)",
-					strokeColor : "rgba(151,187,205,1)",
-					data : <%=raw @wait_times%>
-				}
-			]
-			
-		}
-
-	var myLine = new Chart(document.getElementById("canvas1").getContext("2d")).Bar(barChartData);
-	
-	</script>
-	<br/>
-<%= link_to 'New Member', new_job_path %>
-
-</div>
-</div>
-</div>

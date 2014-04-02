@@ -47,7 +47,7 @@
 										<h1><a href="javascript:void(0);">Stages</a></h1>
 									
 									<!-- Nav -->
-										<%= render 'layouts/navigation' %>
+										<%#= render 'layouts/navigation' %>
 								</section>
 
 						</div>
@@ -69,8 +69,7 @@
 					<section id="footer" class="container">
 						<div class="row">
 							<div class="8u">
-
-								
+		
 					</section>
 				
 			</div>
@@ -119,21 +118,25 @@ function validateForm(){
 	if ($('#job_end_date').val() == '' )
 	    {
 	      $('#job_end_date').next().show();
+	      $('#job_category').next().hide();
 	      success = false;
 	    }
 	  else
 		 {
 		   $('#job_end_date').next().hide();
+		   $('#job_category').next().show();
 		 
 		 }
 	if ($('#job_end_date').val() != '' && ($('#job_end_date').val() < $('#job_start_date').val()) )
 	    {
 	      $('#job_end_date').next().next().show();
+	      $('#job_category').next().hide();
 	      success = false;
 	    }
 	  else
 		 {
 		   $('#job_end_date').next().next().hide();
+		  
 		 
 		 }
 	 
