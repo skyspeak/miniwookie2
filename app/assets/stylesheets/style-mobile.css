@@ -13,6 +13,11 @@
 		line-height: 1.75em;
 		font-size: 11pt;
 		letter-spacing: 0;
+		background: url("/assets/bg02.png") repeat scroll 0 0 transparent;
+	         box-shadow: 0 -60px 40px 0 #FFFFFF inset;
+		    content: "";
+		    left: 0;
+		    opacity: 0.5;
 	}
 
 	h2, h3, h4, h5, h6
@@ -163,7 +168,7 @@
 			top: 10px;
 			width: 50px;
 			height: 40px;
-			background: rgba(150,150,150,0.35) url('images/mobileUI-site-nav-opener-bg.svg') 12px 14px no-repeat;
+			background: rgba(150,150,150,0.35) url('/assets/mobileUI-site-nav-opener-bg.svg') 12px 14px no-repeat;
 			border-radius: 5px;
 		}
 
