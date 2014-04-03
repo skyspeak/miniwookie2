@@ -1,0 +1,103 @@
+
+	<!-- Intro -->
+								<section id="intro">
+								
+									<div>
+									
+			
+									
+										<div class="row">
+											<div class="4u">
+												<section class="first">
+													<!-- <span class="pennant"><span class="fa fa-cog"></span></span> -->
+													<header>
+														<h2>Members</h2>
+														<div style="font-weight: bold; font-size: 60px; padding-top: 50px;"><%=@members_count%></div>
+													</header>
+												</section>
+											</div>
+											<div class="4u">
+												<section class="middle">
+												 <!-- 	<span class="pennant pennant-alt"><span class="fa fa-flash"></span></span> -->
+													<header>
+														<h2>Stages</h2>
+														<canvas id="canvas"  height="450" width="400" style="margin-left: -15px;" ></canvas>
+														<div class="col-md-4 column" style="width:300px;">
+															 <table class="table table-bordered table-striped"  cellspacing="15">
+																  <tr>
+																	  <td><span style="background:#F38630;display:block;text-indent: -9999px;width:20px;">tt</span></td>
+																	  <td>Stage1 - <%=raw @members1%> Members</td>
+																  </tr>
+																  <tr>
+																	  <td><span style="background:#E0E4CC;display:block;text-indent: -9999px;width:20px;">tt</span></td>
+																	  <td>Stage2 - <%=raw @members2%> Members</td>
+																  </tr>
+																  <tr>
+																	  <td><span style="background:#69D2E7;display:block;text-indent: -9999px;width:20px;">tt</span></td>
+																	  <td>Stage3 - <%=raw @members3%> Members</td>
+																  </tr>
+																  <tr>
+																	  <td><span style="background:#9D9B7F;display:block;text-indent: -9999px;width:20px;">tt</span></td>
+																	  <td>Stage4 - <%=raw @members4%> Members</td>
+																  </tr>
+																 
+															  </table>
+														</div>
+												</section>
+											</div>
+											<div class="4u">
+												<section class="last">
+													<!--  <span class="pennant pennant-alt2"><span class="fa fa-star"></span></span> -->
+													<header>
+														<h2>Wait times (In Weeks)</h2>
+														<canvas id="canvas1" height="450" width="500"></canvas>
+													</header>
+												</section>
+											</div>
+										</div>
+									</div>
+
+								
+									</div>
+								
+								</section>
+
+	<script>
+
+		var barChartData = {
+			labels : ['Stage1 - <%=(@average1 / 7).round%>W','Stage2 - <%=(@average2 / 7).round%>W','Stage3 - <%=(@average3 / 7).round%>W','Stage4 - <%=(@average4 / 7).round%>W'],
+			datasets : [
+			   {
+					fillColor : "rgba(151,187,205,0.5)",
+					strokeColor : "rgba(151,187,205,1)",
+					data : <%=raw @wait_times%>
+				}
+			]
+			
+		}
+
+	var myLine = new Chart(document.getElementById("canvas1").getContext("2d")).Bar(barChartData);
+	
+	
+	var pieData = [
+				{
+					value: <%=raw @members1%>,
+					color:"#F38630"
+				},
+				{
+					value : <%=raw @members2%>,
+					color : "#E0E4CC"
+				},
+				{
+					value : <%=raw @members3%>,
+					color : "#69D2E7"
+				},
+				{
+					value : <%=raw @members4%>,
+					color : "#9D9B7F"
+				}
+			
+			];
+  
+	var myPie = new Chart(document.getElementById("canvas").getContext("2d")).Doughnut(pieData);
+	</script><br/>
