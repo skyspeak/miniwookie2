@@ -161,7 +161,7 @@ class JobsController < ApplicationController
         format.mobile { redirect_to '/', notice: 'Member was successfully created.' }
       else
         format.html { render action: 'new' }
-        format.mobile { redirect_to '/', notice: 'Member was successfully created.' }
+        format.mobile { render action: 'new'}
         format.json { render json: @job.errors, status: :unprocessable_entity }
       end
     end

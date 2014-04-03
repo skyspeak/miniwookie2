@@ -37,12 +37,12 @@
 		     <span style="display:none;" class="error">Please provide a stage. </span>
 		  </div>
 	      
-	      <div class="form-group"  data-role="fieldcontain">
+	      <div class="form-group"  data-role="none">
 	           <%= f.label 'Your category' %>
 		       <label><%= f.select :category, options_for_select({ "1" => "Category1", "2" => "Category2" , "3" => "Category3"}), {prompt: "Select a Category"},{class: "form-control",:style => "width:200px;margin-left:0px;!important;"} %></label>
 		  </div>
 	      
-	       <div class="form-group"  data-role="fieldcontain">
+	       <div class="form-group"  data-role="none">
 	          <%= f.label :country %>
 	          <%= f.country_select :country, ["United States"] ,:class => "form-control" ,:style => "width:200px;margin-left:0px;!important;"%>
 		  </div>
