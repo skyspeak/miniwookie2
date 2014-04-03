@@ -1,6 +1,6 @@
 <div style="margin-top:-60px;">
 
-
+Mobile
 <%= form_for(@job , :html => { :class => 'form-horizontal' ,:onsubmit => "return validateForm();"} ) do |f| %>
     
     <div class="col-lg-4 column ui-sortable">
@@ -48,9 +48,7 @@
 	          <%= f.country_select :country, ["United States"] ,:class => "form-control" ,:style => "width:200px;"%>
 		  </div>
 		  
-		  <div class="form-group">
-           <%= f.submit "Send", :class => 'button'%>
-         </div>
+		  
      </div>
      
 	<div class="col-lg-4 column ui-sortable"> 
@@ -67,11 +65,12 @@
 			    <span style="display:none;" class="error">Please provide a end date. </span>
 			    <span style="display:none;" class="error">End date should be greater than start date. </span>
 		    </div>
+		    <div class="form-group">
+           <%= f.submit "Send", :class => 'button'%>
+         </div>
 	 </div>
        
 	  
 	  
  <% end %>
 </div>
-<br/><br/>
-<br/><br/>
