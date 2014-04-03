@@ -1389,8 +1389,8 @@ button.close {
   }
 }
 .row {
-  margin-right: -15px;
-  margin-left: -15px;
+ // margin-right: -15px;
+  //margin-left: -15px;
 }
 
 @media (min-width: 1200px) {
@@ -1557,7 +1557,10 @@ button.close {
     margin-left: 0;
   }
 }
-
+.form-group
+{
+ margin-bottom: 10px;
+}
 input[type="radio"] {
   width:1em;
   height:1em;
