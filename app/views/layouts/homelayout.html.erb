@@ -97,12 +97,12 @@ function validateForm(){
 	
 	  if ($('#job_stage').val() == '' )
 	    {
-	      $('#job_stage').next().show();
-	      success = false;
+	      //$('#job_stage').next().show();
+	     // success = false;
 	    }
 	  else
 		 {
-		   $('#job_stage').next().hide();
+		 //  $('#job_stage').next().hide();
 		 
 		 }
 	  if ($('#job_start_date').val() == '' )
@@ -118,26 +118,20 @@ function validateForm(){
 	if ($('#job_end_date').val() == '' )
 	    {
 	      $('#job_end_date').next().show();
-	      $('#job_category').next().hide();
-	      success = false;
+	     success = false;
 	    }
 	  else
 		 {
 		   $('#job_end_date').next().hide();
-		   $('#job_category').next().show();
-		 
 		 }
 	if ($('#job_end_date').val() != '' && ($('#job_end_date').val() < $('#job_start_date').val()) )
 	    {
 	      $('#job_end_date').next().next().show();
-	      $('#job_category').next().hide();
 	      success = false;
 	    }
 	  else
 		 {
 		   $('#job_end_date').next().next().hide();
-		  
-		 
 		 }
 	 
 	return success;
