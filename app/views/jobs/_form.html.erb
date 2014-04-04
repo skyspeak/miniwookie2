@@ -20,7 +20,7 @@
 		      <%end%>
 		   
 		  </div>
-		   <img src="/assets/red.png"  style="margin-top: -130px;margin-left: 390px;height: 150px;width: 15px;"></img>
+		   <img src="/assets/arrowleft.png"  style="margin-top: -270px;margin-left: 370px;"></img>
 	</div>
 	
      
@@ -43,17 +43,12 @@
 	           <%= f.label 'Your category' %>
 		       <label><%= f.select :category, options_for_select({ "1" => "Category1", "2" => "Category2" , "3" => "Category3"}), {prompt: "Select a Category"},{class: "form-control",:style => "width:200px;"} %></label>
 		  </div>
-	      <img src="/assets/red.png"  style="margin-top: -130px;margin-left: 390px;height: 150px;width: 15px;"></img>
+	      <img src="/assets/arrowleft.png"  style="margin-top: -330px;margin-left: 390px;"></img>
 	       <div class="form-group">
 	          <%= f.label :country %>
 	          <%= f.country_select :country, ["United States"] ,:class => "form-control" ,:style => "width:200px;"%>
 		  </div>
-		  
-		  <div class="form-group">
-           <%= f.submit "Send", :class => 'btn btn-lg btn-danger active'%>
-         </div>
-          
-         
+	      
      </div>
      
 	<div class="col-lg-4 column ui-sortable"> 
@@ -70,7 +65,11 @@
 			    <span style="display:none;" class="error">Please provide a end date. </span>
 			    <span style="display:none;" class="error">End date should be greater than start date. </span>
 		    </div>
-		     <img src="/assets/red.png"  style="margin-top: -130px;margin-left: 390px;height: 150px;width: 15px;"></img>
+		   
+		  <div class="form-group">
+           <%= f.submit "Submit", :class => 'btn btn-lg btn-danger active' ,:style => "float: right;margin-right: 75px;"%>
+         </div>
+         
 	 </div>
        
 	  
