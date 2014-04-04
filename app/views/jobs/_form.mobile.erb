@@ -49,7 +49,7 @@
 	      
 	      <div class="form-group">
 	           <%= f.label 'Your category' %>
-		       <label><%= f.select :category, options_for_select({ "1" => "Category1", "2" => "Category2" , "3" => "Category3"}), {prompt: "Select a Category"},{:style => "width:200px;",'data-role' => 'ui-field-contain'} %></label>
+		       <label><%= f.select :category, options_for_select({ "1" => "Category1", "2" => "Category2" , "3" => "Category3"}), {prompt: "Select a Category"},{:style => "width:200px;",'data-role' => 'ui-field-contain','data-native-menu' => 'false'} %></label>
 		  </div>
 	    
 	       <div class="form-group">
