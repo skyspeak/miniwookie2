@@ -1,64 +1,14 @@
 class JobsController < ApplicationController
   before_action :set_job, only: [:show, :edit, :update, :destroy]
+  #before_action :authenticate_user! , only: [:index]
+  http_basic_authenticate_with name: "testuser", password: "testing123", only: :index
   layout "homelayout"
   # GET /jobs
   # GET /jobs.json
   def index
-    @jobs = Job.all
-    @jobs1 = Job.find_all_by_stage('Stage1')
-    @jobs2 = Job.find_all_by_stage('Stage2')
-    @jobs3 = Job.find_all_by_stage('Stage3')
-    @jobs4 = Job.find_all_by_stage('Stage4')
-    
-    @stages = []
-   @members_count= Job.all.count
-   @members1 =  Job.find_all_by_stage('Stage1').count
-   @members2 =  Job.find_all_by_stage('Stage2').count
-   @members3 =  Job.find_all_by_stage('Stage3').count
-   @members4 =  Job.find_all_by_stage('Stage4').count
 
-   @members = []
-   @wait_times=[]
-   @wait_times1=0
-   @wait_times2=0
-   @wait_times3=0
-   @wait_times4=0
-    @average_sec1 = 0
-    @average_sec2 = 0
-    @average_sec3 = 0
-    @average_sec4 = 0
+    @jobs = Job.all
     
-    @jobs1.each do |m|
-       @wait_times1 = (DateTime.now.to_date - m.start_date).to_i
-       @average_sec1 = @average_sec1 + @wait_times1
-    end
-    
-    @average1 = @average_sec1 / @members1
-    
-    @jobs2.each do |m|
-        @wait_times2 = (DateTime.now.to_date - m.start_date).to_i
-       @average_sec2 += @wait_times2
-    end
-    @average2 = @average_sec2 / @members2
-    
-    @jobs3.each do |m|
-       @wait_times3 = (DateTime.now.to_date - m.start_date).to_i
-       @average_sec3 += @wait_times3
-    end
-    @average3 = @average_sec3 / @members3
-    
-    @jobs4.each do |m|
-       @wait_times4 = (DateTime.now.to_date - m.start_date).to_i
-       @average_sec4 += @wait_times4
-    end
-    @average4 = @average_sec4 / @members4
-    
-    @jobs.each do |m|
-      @members << m.name
-	  @stages << m.stage
-	end
-	
-	  @wait_times = [(@average1 / 30).round , (@average2 / 30).round , (@average3 / 30).round ,  (@average4 / 30).round]
   end
 
   # GET /jobs/1
