@@ -148,17 +148,17 @@
 
 	#header-wrapper
 	{
-		padding: 6em 0 6em 0;
+		padding: 4em 0 3em 0;
 	}
 
 		#header-wrapper:before
 		{
-			height: 10em;
+			height: 5em;
 		}
 	
 		#header-wrapper:after
 		{
-			height: 20em;
+			height: 10em;
 			top: -2.5em;
 		}
 	

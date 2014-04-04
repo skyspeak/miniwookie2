@@ -29,26 +29,26 @@ class JobsController < ApplicationController
     @average_sec4 = 0
     
     @jobs1.each do |m|
-       @wait_times1 = (m.end_date - m.start_date).to_i
+       @wait_times1 = (DateTime.now.to_date - m.start_date).to_i
        @average_sec1 = @average_sec1 + @wait_times1
     end
     
     @average1 = @average_sec1 / @members1
     
     @jobs2.each do |m|
-        @wait_times2 = (m.end_date - m.start_date).to_i
+        @wait_times2 = (DateTime.now.to_date - m.start_date).to_i
        @average_sec2 += @wait_times2
     end
     @average2 = @average_sec2 / @members2
     
     @jobs3.each do |m|
-       @wait_times3 = (m.end_date - m.start_date).to_i
+       @wait_times3 = (DateTime.now.to_date - m.start_date).to_i
        @average_sec3 += @wait_times3
     end
     @average3 = @average_sec3 / @members3
     
     @jobs4.each do |m|
-       @wait_times4 = (m.end_date - m.start_date).to_i
+       @wait_times4 = (DateTime.now.to_date - m.start_date).to_i
        @average_sec4 += @wait_times4
     end
     @average4 = @average_sec4 / @members4
@@ -94,7 +94,7 @@ class JobsController < ApplicationController
     @average_sec4 = 0
     
     @jobs1.each do |m|
-       @wait_times1 = (m.end_date - m.start_date).to_i
+       @wait_times1 = (DateTime.now.to_date - m.start_date).to_i
        @average_sec1 = @average_sec1 + @wait_times1
     end
     if @members1 > 0
@@ -104,7 +104,7 @@ class JobsController < ApplicationController
     end
     
     @jobs2.each do |m|
-        @wait_times2 = (m.end_date - m.start_date).to_i
+        @wait_times2 = (DateTime.now.to_date - m.start_date).to_i
         @average_sec2 += @wait_times2
     end
     if @members2 > 0
@@ -114,7 +114,7 @@ class JobsController < ApplicationController
     end
     
     @jobs3.each do |m|
-       @wait_times3 = (m.end_date - m.start_date).to_i
+       @wait_times3 = (DateTime.now.to_date - m.start_date).to_i
        @average_sec3 += @wait_times3
     end
     if @members3 > 0
@@ -124,7 +124,7 @@ class JobsController < ApplicationController
     end
     
     @jobs4.each do |m|
-       @wait_times4 = (m.end_date - m.start_date).to_i
+       @wait_times4 = (DateTime.now.to_date - m.start_date).to_i
        @average_sec4 += @wait_times4
     end
     if @members4 > 0

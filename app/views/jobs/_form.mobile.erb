@@ -36,13 +36,13 @@
           <b style="font-size:20px;">Where are you in the process?</b><br/><br/>
 	      <div class="form-group">
 		     <%= f.label 'Your stage'%>
-                 <input type="radio" name="job[stage]" id="job_stage" value="Stage1" checked="checked">
+                 <input type="radio" data-role='ui-field-contain' name="job[stage]" id="job_stage" value="Stage1" checked="checked">
 			      1
-			      <input type="radio" name="job[stage]" id="job_stage" value="Stage2">
+			      <input type="radio" data-role='ui-field-contain' name="job[stage]" id="job_stage" value="Stage2">
 			      2
-			      <input type="radio" name="job[stage]" id="job_stage" value="Stage3">
+			      <input type="radio" data-role='ui-field-contain' name="job[stage]" id="job_stage" value="Stage3">
 			      3
-			      <input type="radio" name="job[stage]" id="job_stage" value="Stage4">
+			      <input type="radio" data-role='ui-field-contain' name="job[stage]" id="job_stage" value="Stage4">
 			      4
 		     <span style="display:none;" class="error">Please provide a stage. </span>
 		  </div>
@@ -54,7 +54,7 @@
 	    
 	       <div class="form-group">
 	          <%= f.label :country %>
-	          <%= f.country_select :country, ["United States"] ,:style => "width:200px;", 'data-role' => 'ui-field-contain', 'data-native-menu' => 'false' %>
+	          <%= f.country_select :country, ["Australia"] ,:style => "width:200px;", 'data-role' => 'ui-field-contain', 'data-native-menu' => 'false' %>
 		  </div>
 		  
          

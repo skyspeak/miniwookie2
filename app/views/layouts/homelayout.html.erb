@@ -61,17 +61,17 @@
 		
 					</div>
 					
-		<!-- Footer Wrapper -->
+		<!-- Footer Wrapper
 			<div id="footer-wrapper">
 				
-				<!-- Footer -->
+		
 					<section id="footer" class="container">
 						<div class="row">
 							<div class="8u">
 		
 					</section>
 				
-			</div>
+			</div> -->
    
   </body>
 </html>
@@ -79,6 +79,7 @@
 <script>
 $(document).ready(function() {
           setTimeout(function(){$(".alert-success").fadeOut( "slow" );},4000);   
+       
    });
    
 function validateForm(){ 
@@ -114,7 +115,7 @@ function validateForm(){
 		   $('#job_start_date').next().hide();
 		 
 		 }
-	if ($('#job_end_date').val() == '' )
+	/*if ($('#job_end_date').val() == '' )
 	    {
 	      $('#job_end_date').next().show();
 	     success = false;
@@ -132,7 +133,7 @@ function validateForm(){
 		 {
 		   $('#job_end_date').next().next().hide();
 		 }
-	 
+	 */
 	return success;
    }
 

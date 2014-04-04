@@ -3,7 +3,7 @@
 
 <%= form_for(@job , :html => { :class => 'form-horizontal' ,:onsubmit => "return validateForm();"} ) do |f| %>
 
-    <div class="col-lg-4 column ui-sortable" >
+    <div class="col-lg-3 column ui-sortable" >
          <b style="font-size:20px;">Who are you?</b><br/><br/>
 	     <div class="form-group">
 		    <%= f.label :name %>
@@ -20,9 +20,11 @@
 		      <%end%>
 		   
 		  </div>
-		   <img src="/assets/arrowleft.png"  style="margin-top: -270px;margin-left: 370px;"></img>
+		   
 	</div>
-	
+	  <div class="col-lg-1 column ui-sortable" >
+	    <img src="/assets/arrowleft.png"  style="margin-top: 30px;"></img>
+	  </div>
      
      <div class="col-lg-4 column ui-sortable">
           <b style="font-size:20px;">Where are you in the process?</b><br/><br/>
@@ -43,25 +45,27 @@
 	           <%= f.label 'Your category' %>
 		       <label><%= f.select :category, options_for_select({ "1" => "Category1", "2" => "Category2" , "3" => "Category3"}), {prompt: "Select a Category"},{class: "form-control",:style => "width:200px;"} %></label>
 		  </div>
-	      <img src="/assets/arrowleft.png"  style="margin-top: -330px;margin-left: 390px;"></img>
+	      
 	       <div class="form-group">
 	          <%= f.label :country %>
-	          <%= f.country_select :country, ["United States"] ,:class => "form-control" ,:style => "width:200px;"%>
+	          <%= f.country_select :country, ["Australia"] ,:class => "form-control" ,:style => "width:200px;"%>
 		  </div>
-	      
-     </div>
+	      </div>
      
-	<div class="col-lg-4 column ui-sortable"> 
+       <div class="col-lg-1 column ui-sortable" >
+	    <img src="/assets/arrowleft.png"  style="margin-top: 30px;"></img>
+	  </div>
+	<div class="col-lg-3 column ui-sortable"> 
 	     <b style="font-size:20px;">How long have you waited?</b><br/><br/>
 	     <div class="form-group">
 		    <%= f.label :start_date %>
-    	    <%= f.text_field :start_date , :placeholder => "yyyy-mm-dd" ,:class => "form-control",:style => "width:220px;" %>
+    	    <%= f.text_field :start_date , :placeholder => "yyyy-mm-dd" ,:class => "form-control",:style => "width:220px;", :onfocus => "this.placeholder = ''" , :onblur => "this.placeholder = 'yyyy-mm-dd'"  %>
 		    <span style="display:none;" class="error">Please provide a start date. </span>
 		  </div>
 		  
 		   <div class="form-group">
 			    <%= f.label :end_date%>
-			    <%= f.text_field :end_date , :placeholder => "yyyy-mm-dd" ,:class => "form-control",:style => "width:220px;" %>
+			    <%= f.text_field :end_date , :placeholder => "yyyy-mm-dd" ,:class => "form-control",:style => "width:220px;",  :onfocus => "this.placeholder = ''" , :onblur => "this.placeholder = 'yyyy-mm-dd'" %>
 			    <span style="display:none;" class="error">Please provide a end date. </span>
 			    <span style="display:none;" class="error">End date should be greater than start date. </span>
 		    </div>
