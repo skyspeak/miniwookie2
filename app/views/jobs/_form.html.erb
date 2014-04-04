@@ -65,10 +65,8 @@
 		  
 		   <div class="form-group">
 			    <%= f.label :end_date%>
-			    <%= f.text_field :end_date , :placeholder => "yyyy-mm-dd" ,:class => "form-control",:style => "width:220px;",  :onfocus => "this.placeholder = ''" , :onblur => "this.placeholder = 'yyyy-mm-dd'" %>
-			    <span style="display:none;" class="error">Please provide a end date. </span>
-			    <span style="display:none;" class="error">End date should be greater than start date. </span>
-		    </div>
+			    <%= f.text_field :end_date , :placeholder => "blank if ongoing" ,:class => "form-control",:style => "width:220px;",  :onfocus => "this.placeholder = ''" , :onblur => "this.placeholder = 'blank if ongoing'" %>
+			 </div>
 		   
 		  <div class="form-group">
            <%= f.submit "Submit", :class => 'btn btn-lg btn-danger active' ,:style => "float: right;margin-right: 75px;"%>
