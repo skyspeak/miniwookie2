@@ -1,8 +1,16 @@
-<div style="margin-top:-60px;">
+<div style="">
 
 
-<%= form_for(@job , :html => { :class => 'form-horizontal' ,:onsubmit => "return validateForm();"} ) do |f| %>
-    
+<%= form_for(@job , :html => { :class => 'form-horizontal' } ) do |f| %>
+ <% if @job.errors.any? %>
+    <div id="error_explanation" style="color:red;">
+       <ul>
+       <% @job.errors.full_messages.each do |error_message| %>
+		<li><%= error_message %> </li>
+		<% end %>
+        </ul>   
+    </div>
+  <% end %>
     <div class="col-lg-4 column ui-sortable" >
          <b style="font-size:20px;">Who are you?</b><br/><br/>
 	     <div class="form-group">
@@ -20,7 +28,7 @@
 		      <%end%>
 		   
 		  </div>
-		   <img src="/assets/red.png"  style="margin-top: -130px;margin-left: 390px;height: 150px;width: 15px;"></img>
+		  
 	</div>
 	
      
@@ -43,16 +51,12 @@
 	           <%= f.label 'Your category' %>
 		       <label><%= f.select :category, options_for_select({ "1" => "Category1", "2" => "Category2" , "3" => "Category3"}), {prompt: "Select a Category"},{class: "form-control",:style => "width:200px;"} %></label>
 		  </div>
-	      <img src="/assets/red.png"  style="margin-top: -130px;margin-left: 390px;height: 150px;width: 15px;"></img>
+	    
 	       <div class="form-group">
 	          <%= f.label :country %>
 	          <%= f.country_select :country, ["United States"] ,:class => "form-control" ,:style => "width:200px;"%>
 		  </div>
 		  
-		  <div class="form-group">
-           <%= f.submit "Send", :class => 'btn btn-lg btn-danger active'%>
-         </div>
-          
          
      </div>
      
@@ -70,7 +74,10 @@
 			    <span style="display:none;" class="error">Please provide a end date. </span>
 			    <span style="display:none;" class="error">End date should be greater than start date. </span>
 		    </div>
-		     <img src="/assets/red.png"  style="margin-top: -130px;margin-left: 390px;height: 150px;width: 15px;"></img>
+		    
+		     <div class="form-group">
+           <%= f.submit "Send", :class => 'btn btn-lg btn-danger active'%>
+         </div>
 	 </div>
        
 	  

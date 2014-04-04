@@ -81,4 +81,8 @@
           setTimeout(function(){$(".alert-success1").fadeOut( "slow" );},4000);   
        });
             
+      $(document).bind('mobileinit',function(){
+	$.mobile.page.prototype.options.keepNative = "select, input.foo, textarea.bar";
+})
+
 </script>

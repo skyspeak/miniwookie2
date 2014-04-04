@@ -140,6 +140,12 @@ function validateForm(){
 	return success;
    }
 
-
+$("select").live("focus", function () {
+  $.mobile.zoom.disable(true);
+});
+$("select").live("blur", function () {
+  $.mobile.zoom.enable(true);
+});
+$('#job_country').selectmenu();
        
     </script>
