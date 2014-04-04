@@ -3,7 +3,7 @@
 
 <%= form_for(@job , :html => { :class => 'form-horizontal' ,:onsubmit => "return validateForm();"} ) do |f| %>
     
-    <div class="col-lg-4 column ui-sortable">
+    <div class="col-lg-4 column ui-sortable" >
          <b style="font-size:20px;">Who are you?</b><br/><br/>
 	     <div class="form-group">
 		    <%= f.label :name %>
@@ -20,6 +20,7 @@
 		      <%end%>
 		   
 		  </div>
+		  <img src="/assets/arrow.jpeg"  style="margin-top: -130px;margin-left: 370px;height: 150px;width: 90px;"></img>
 	</div>
 	
      
@@ -42,15 +43,17 @@
 	           <%= f.label 'Your category' %>
 		       <label><%= f.select :category, options_for_select({ "1" => "Category1", "2" => "Category2" , "3" => "Category3"}), {prompt: "Select a Category"},{class: "form-control",:style => "width:200px;"} %></label>
 		  </div>
-	      
+	      <img src="/assets/red.png"  style="margin-top: -130px;margin-left: 370px;height: 150px;width: 15px;"></img>
 	       <div class="form-group">
 	          <%= f.label :country %>
 	          <%= f.country_select :country, ["United States"] ,:class => "form-control" ,:style => "width:200px;"%>
 		  </div>
 		  
 		  <div class="form-group">
-           <%= f.submit "Send", :class => 'button'%>
+           <%= f.submit "Send", :class => 'btn btn-lg btn-danger active'%>
          </div>
+          
+         
      </div>
      
 	<div class="col-lg-4 column ui-sortable"> 
@@ -67,6 +70,8 @@
 			    <span style="display:none;" class="error">Please provide a end date. </span>
 			    <span style="display:none;" class="error">End date should be greater than start date. </span>
 		    </div>
+		     <img src="/assets/arrow.jpeg"  style="margin-top: -130px;margin-left: 370px;height: 150px;width: 90px;"></img>
+		    
 	 </div>
        
 	  
