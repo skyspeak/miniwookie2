@@ -6,13 +6,13 @@
 									
 										  <%= render 'form' %>
 									
-										<div class="row" style="">
+										<div class="row" >
 											<div class="4u">
 												<section class="first">
 													<!-- <span class="pennant"><span class="fa fa-cog"></span></span> -->
 													<header>
 														<h2>Members</h2>
-														<div style="font-weight: bold; font-size: 60px; padding-top: 50px;"><%=@members_count%></div>
+														<div style="font-weight: bold; font-size: 150px; padding-top: 50px;margin-top: 45%;"><%=@members_count%></div>
 													</header>
 												</section>
 											</div>
@@ -63,20 +63,38 @@
 								</section>
 
 	<script>
-
+        var options= {
+            scaleOverlay: true,
+			scaleShowGridLines: true,
+			scaleOverride: true,
+			scaleSteps: 4,
+			scaleStepWidth: 5,
+			scaleStartValue: 0,
+			scaleLineColor: "rgba(0,0,0,.1)",
+			scaleLineWidth: 1,
+			scaleShowLabels: true,
+			scaleFontSize: 16,
+			scaleFontColor: "#000",
+			barDatasetSpacing: 2,
+			barStrokeWidth: 2,
+			
+     	
+          	}
+			
 		var barChartData = {
-			labels : ['Stage1 - <%=(@average1 / 7).round%>W','Stage2 - <%=(@average2 / 7).round%>W','Stage3 - <%=(@average3 / 7).round%>W','Stage4 - <%=(@average4 / 7).round%>W'],
+			labels : ['Stage1','Stage2','Stage3','Stage4'],
 			datasets : [
 			   {
 					fillColor : "rgba(151,187,205,0.5)",
 					strokeColor : "rgba(151,187,205,1)",
 					data : <%=raw @wait_times%>
-				}
-			]
+				},
+				
+			]	
 			
 		}
 
-	var myLine = new Chart(document.getElementById("canvas1").getContext("2d")).Bar(barChartData);
+	var myLine = new Chart(document.getElementById("canvas1").getContext("2d")).Bar(barChartData,options);
 	
 	
 	var pieData = [

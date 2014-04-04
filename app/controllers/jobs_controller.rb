@@ -158,10 +158,10 @@ class JobsController < ApplicationController
         @job_email.save!
         format.html { redirect_to '/', notice: 'Member was successfully created.' }
         format.json { render action: 'show', status: :created, location: @job }
-        format.mobile { redirect_to '/', notice: 'Member was successfully created.' }
+       
       else
         format.html { render action: 'new' }
-        format.mobile { render action: 'new'}
+
         format.json { render json: @job.errors, status: :unprocessable_entity }
       end
     end

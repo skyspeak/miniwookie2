@@ -1,12 +1,13 @@
-<div style="">
+<div style="margin-top:-60px;">
+
 
 <%= form_for(@job , :html => { :class => 'form-horizontal' ,:onsubmit => "return validateForm();"} ) do |f| %>
     
-    <div class="col-lg-4 column ui-sortable">
+    <div class="col-lg-4 column ui-sortable" >
          <b style="font-size:20px;">Who are you?</b><br/><br/>
 	     <div class="form-group">
 		    <%= f.label :name %>
-		      <%= f.text_field :name ,:class => "form-control",:style => "width:250px;"%>
+		      <%= f.text_field :name ,:class => "form-control",:style => "width:220px;"%>
 		      <span  style="display:none;" class="error">Please provide a name. </span>
 		  </div>
 	      
@@ -15,13 +16,14 @@
      	     <%if params[:action] =='edit'%>
 		        <%= text_field_tag 'job[email]' , @job.job_emails.first.email,:class => "form-control",:readonly => 'true',:style => "width:220px;"%>
 		     <%else%>
-		         <%= text_field_tag 'job[email]' , nil,:class => "form-control",:style => "width:250px;"%>
+		         <%= text_field_tag 'job[email]' , nil,:class => "form-control",:style => "width:220px;"%>
 		      <%end%>
 		   
 		  </div>
+		   <img src="/assets/red.png"  style="margin-top: -130px;margin-left: 390px;height: 150px;width: 15px;"></img>
 	</div>
 	
-     <br/>
+     
      <div class="col-lg-4 column ui-sortable">
           <b style="font-size:20px;">Where are you in the process?</b><br/><br/>
 	      <div class="form-group">
@@ -37,40 +39,43 @@
 		     <span style="display:none;" class="error">Please provide a stage. </span>
 		  </div>
 	      
-	      <div class="form-group" >
+	      <div class="form-group">
 	           <%= f.label 'Your category' %>
-		       <label><%= f.select :category, options_for_select({ "1" => "Category1", "2" => "Category2" , "3" => "Category3"}), {prompt: "Select a Category"},{class: "form-control",:style => "width:200px;margin-left:0px;!important;"} %></label>
+		       <label><%= f.select :category, options_for_select({ "1" => "Category1", "2" => "Category2" , "3" => "Category3"}), {prompt: "Select a Category"},{class: "form-control",:style => "width:200px;"} %></label>
 		  </div>
-	      
-	       <div class="form-group" >
+	      <img src="/assets/red.png"  style="margin-top: -130px;margin-left: 390px;height: 150px;width: 15px;"></img>
+	       <div class="form-group">
 	          <%= f.label :country %>
-	          <%= f.country_select :country, ["United States"] ,:class => "form-control" ,:style => "width:200px;margin-left:0px;!important;"%>
+	          <%= f.country_select :country, ["United States"] ,:class => "form-control" ,:style => "width:200px;"%>
 		  </div>
 		  
-		  
+		  <div class="form-group">
+           <%= f.submit "Send", :class => 'btn btn-lg btn-danger active'%>
+         </div>
+          
+         
      </div>
      
-     <br/>
 	<div class="col-lg-4 column ui-sortable"> 
 	     <b style="font-size:20px;">How long have you waited?</b><br/><br/>
 	     <div class="form-group">
 		    <%= f.label :start_date %>
-    	    <%= f.text_field :start_date , :placeholder => "yyyy-mm-dd" ,:class => "form-control",:style => "width:250px;" %>
+    	    <%= f.text_field :start_date , :placeholder => "yyyy-mm-dd" ,:class => "form-control",:style => "width:220px;" %>
 		    <span style="display:none;" class="error">Please provide a start date. </span>
 		  </div>
 		  
 		   <div class="form-group">
 			    <%= f.label :end_date%>
-			    <%= f.text_field :end_date , :placeholder => "yyyy-mm-dd" ,:class => "form-control",:style => "width:250px;" %>
+			    <%= f.text_field :end_date , :placeholder => "yyyy-mm-dd" ,:class => "form-control",:style => "width:220px;" %>
 			    <span style="display:none;" class="error">Please provide a end date. </span>
 			    <span style="display:none;" class="error">End date should be greater than start date. </span>
 		    </div>
-		    <div class="form-group">
-           <%= f.submit "Send", :class => 'button'%>
-         </div>
+		     <img src="/assets/red.png"  style="margin-top: -130px;margin-left: 390px;height: 150px;width: 15px;"></img>
 	 </div>
        
 	  
 	  
  <% end %>
 </div>
+<br/><br/>
+<br/><br/>
