@@ -4,8 +4,11 @@ development:
   pool: 5
   timeout: 5000
 
-rprod:
-  adapter: sqlite3
-  database: db/development.sqlite3
+production:
+  adapter: mysql2
+  encoding: utf8
+  database: selfserve_dev_new
   pool: 5
-  timeout: 5000
+  username: root
+  password: indian
+  socket: /var/run/mysqld/mysqld.sock
