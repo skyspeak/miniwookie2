@@ -5,7 +5,6 @@ gem 'rails', '4.0.3'
 
 # Use sqlite3 as the database for Active Record
 gem 'mysql2'
-gem 'pg'
 
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 4.0.0'
@@ -30,10 +29,17 @@ gem 'jbuilder', '~> 1.2'
 
 gem 'forem', :github => "radar/forem", :branch => "rails4"
 gem 'kaminari', '0.15.1'
-gem 'forem-theme-orange', :git => "git://github.com/radar/forem-theme-orange.git"
-gem 'forem-theme-twist', :git => "git://github.com/radar/forem-theme-twist.git"
+#gem 'forem-theme-orange', :git => "git://github.com/radar/forem-theme-orange.git"
+#gem 'forem-theme-twist', :git => "git://github.com/radar/forem-theme-twist.git"
 gem 'forem-bootstrap', :github => "radar/forem-bootstrap"
-
+group :production do
+  gem 'pg'
+  gem 'rails_12factor'
+  gem 'thin'
+end
+group :development, :staging do
+  gem 'sqlite3'
+end
 
 gem 'cancan'
 gem 'devise', "3.0.0rc"
