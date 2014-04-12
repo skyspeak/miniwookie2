@@ -4,7 +4,7 @@ development:
   pool: 5
   timeout: 5000
 
-production:
+rprod:
   adapter: sqlite3
   database: db/development.sqlite3
   pool: 5
