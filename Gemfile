@@ -37,9 +37,6 @@ group :production do
   gem 'rails_12factor'
   gem 'thin'
 end
-group :development, :staging do
-  gem 'sqlite3'
-end
 
 gem 'cancan'
 gem 'devise', "3.0.0rc"
