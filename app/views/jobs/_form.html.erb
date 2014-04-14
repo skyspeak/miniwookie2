@@ -7,16 +7,16 @@
          <b style="font-size:20px;">Who are you?</b><br/><br/>
 	     <div class="form-group">
 		    <%= f.label :name %>
-		      <%= f.text_field :name ,:placeholder => "Name",:class => "form-control",:style => "width:220px;"%>
+		      <%= f.text_field :name ,:class => "form-control",:style => "width:220px;" , :placeholder => "Name"%>
 		      <span  style="display:none;" class="error">Please provide a name. </span>
 		  </div>
 	      
 	       <div class="form-group">
 		    <%= f.label :email %>
      	     <%if params[:action] =='edit'%>
-		        <%= text_field_tag 'job[email]' , @job.job_emails.first.email,:placeholder => "Email", :class => "form-control",:readonly => 'true',:style => "width:220px;"%>
+		        <%= text_field_tag 'job[email]' , @job.job_emails.first.email,:class => "form-control",:readonly => 'true',:style => "width:220px;" , :placeholder => "Email"%>
 		     <%else%>
-		         <%= text_field_tag 'job[email]' , nil,:class => "form-control",:style => "width:220px;"%>
+		         <%= text_field_tag 'job[email]' , nil,:class => "form-control",:style => "width:220px;" , :placeholder => "Email"%>
 		      <%end%>
 		   
 		  </div>
@@ -31,19 +31,19 @@
 	      <div class="form-group">
 		     <%= f.label 'Your stage'%>
                  <input type="radio" name="job[stage]" id="job_stage" value="Stage1" checked="checked">
-			      Perm
+			      1
 			      <input type="radio" name="job[stage]" id="job_stage" value="Stage2">
-			      Labor
+			      2
 			      <input type="radio" name="job[stage]" id="job_stage" value="Stage3">
-			      I-140
+			      3
 			      <input type="radio" name="job[stage]" id="job_stage" value="Stage4">
-			      I-485
+			      4
 		     <span style="display:none;" class="error">Please provide a stage. </span>
 		  </div>
 	      
 	      <div class="form-group">
 	           <%= f.label 'Your category' %>
-		       <label><%= f.select :category, options_for_select({ "EB1" => "Category1", "EB2" => "Category2" , "EB3" => "Category3"}), {prompt: "Select a Category"},{class: "form-control",:style => "width:200px;"} %></label>
+		       <label><%= f.select :category, options_for_select({ "1" => "Category1", "2" => "Category2" , "3" => "Category3"}), {prompt: "Select a Category"},{class: "form-control",:style => "width:200px;"} %></label>
 		  </div>
 	      
 	       <div class="form-group">
