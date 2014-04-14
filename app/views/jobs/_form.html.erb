@@ -7,14 +7,14 @@
          <b style="font-size:20px;">Who are you?</b><br/><br/>
 	     <div class="form-group">
 		    <%= f.label :name %>
-		      <%= f.text_field :name ,:class => "form-control",:style => "width:220px;"%>
+		      <%= f.text_field :name ,:placeholder => "Name",:class => "form-control",:style => "width:220px;"%>
 		      <span  style="display:none;" class="error">Please provide a name. </span>
 		  </div>
 	      
 	       <div class="form-group">
 		    <%= f.label :email %>
      	     <%if params[:action] =='edit'%>
-		        <%= text_field_tag 'job[email]' , @job.job_emails.first.email,:class => "form-control",:readonly => 'true',:style => "width:220px;"%>
+		        <%= text_field_tag 'job[email]' , @job.job_emails.first.email,:placeholder => "Email", :class => "form-control",:readonly => 'true',:style => "width:220px;"%>
 		     <%else%>
 		         <%= text_field_tag 'job[email]' , nil,:class => "form-control",:style => "width:220px;"%>
 		      <%end%>
